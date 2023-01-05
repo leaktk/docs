@@ -5,24 +5,12 @@ User and contributor docs for the LeakTK project.
 (Things are still rather WIP here, there's a lot of work to open source still
 and only so much time to do it \^_\^).
 
-## Architecture
+## Contents
 
-[ARCHITECTURE.md](ARCHITECTURE.md) provides an overview of the LeakTK
-architecture and vision.
-
-## Guides
-
-(Pending further development of the tooling)
-
-## Glossary
-
-[GLOSSARY.md](GLOSSARY.md) provides info on terms used throughout this
-project.
-
-## Contributing
-
-[CONTRIBUTING.md](CONTRIBUTING.md) contains information on how to contribute
-to the docs.
+* [ARCHITECTURE.md](ARCHITECTURE.md) - The LeakTK architecture and vision.
+* Guides - (Pending further development of the tooling)
+* [GLOSSARY.md](GLOSSARY.md) - Terms used throughout this project.
+* [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute to the docs.
 
 ## Why This Project Exists
 
