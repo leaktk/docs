@@ -46,7 +46,7 @@ filters/enrichers, and forwarders.
 ```
 [[Monitor](GitHub), [Monitor](GitLab), [Monitor](Jira), ...]
                       |
-                (Scan Request)                   [Pattern Server]
+                (Source Event)                   [Pattern Server]
                       |                              ^     |
   *-(Scan Results)-*  |   *-(Scan Request)-*         | (Patterns)
   |                |  |   |                |     (Request) |
@@ -86,8 +86,7 @@ scanner pool to handle requests and responses.
 
 ### Monitors
 
-Monitors watch sources for changes. When a change happens it emits a scan
-request.
+Monitors watch sources for changes. When a change happens, it emits a source event.
 
 A few examples of monitors:
 
