@@ -84,6 +84,26 @@ The idea is to make these components composable. For example if scan requests
 needed to be sent over HTTP, a server component could be spun up that wraps a
 scanner pool to handle requests and responses.
 
+### Enrichers & Filters
+
+Enrichers take scan results and add extra information, such as tags, to indicate
+that the leak has been verified or they can add new fields for additional context.
+An enricher MAY add fields or modify them but SHOULD NOT remove fields.
+
+Filters are mainly for deduping scan results over time, but any kind of filter
+that takes a scan result and optionally returns a scan result can be added.
+Filters may also remove items from lists, for example they may remove alert
+tags if additional analysis indicates the result is a false positive.
+
+These two are grouped together becaue a the same bit of code could act as both
+a filter and as an enricher.
+
+### Forwarders
+
+Forwarders take the final enriched message, formats it and sends it to an
+external source like a SIEM, sends an email, etc. These aren't expected to
+have any stdout.
+
 ### Monitors
 
 Monitors watch sources for changes. When a change happens, it emits a source event.
@@ -97,17 +117,6 @@ A few examples of monitors:
 * Look for changes in public Jira tickets
 * Look for public Bugzilla tickets
 * Look for changes in web pages
-
-### Filters
-
-Filters are mainly for deduping scan results over time, but any kind of filter
-that takes a scan result and optionally returns a scan result can be added.
-
-### Forwarders
-
-Forwarders take the final enriched message, formats it and sends it to an
-external source like a SIEM, sends an email, etc. These aren't expected to
-have any stdout.
 
 ### Pattern Server
 
