@@ -95,7 +95,7 @@ that takes a scan result and optionally returns a scan result can be added.
 Filters may also remove items from lists, for example they may remove alert
 tags if additional analysis indicates the result is a false positive.
 
-These two are grouped together becaue a the same bit of code could act as both
+These two are grouped together because a the same bit of code could act as both
 a filter and as an enricher.
 
 ### Forwarders
