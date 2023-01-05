@@ -7,10 +7,10 @@ and only so much time to do it \^_\^).
 
 ## Contents
 
-* [Architecture](ARCHITECTURE.md) - The LeakTK architecture and vision.
-* [Contributing](CONTRIBUTING.md) - How to contribute to the docs.
-* [Glossary](GLOSSARY.md) - Terms used throughout this project.
-* [Guides](guides) - User, contributor, and admin guides.
+* [Architecture](ARCHITECTURE.md) - The LeakTK architecture and vision
+* [Contributing](CONTRIBUTING.md) - How to contribute to the docs
+* [Glossary](GLOSSARY.md) - Terms used throughout this project
+* [Guides](guides) - User, contributor, and admin guides
 * [Ideas](ideas) - A place to capture ideas for the project
 
 ## Why This Project Exists
