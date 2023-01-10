@@ -54,7 +54,7 @@ desire to network components, an additional component should be introduced to
 handle that.
 
 The idea is to make these components composable. For example if scan requests
-needed to be sent over HTTP, a server component could be spun up that wraps a
+need to be sent over HTTP, a server component could be spun up that wraps a
 scanner pool to handle requests and responses.
 
 ### Analyzers
