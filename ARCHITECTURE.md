@@ -25,18 +25,8 @@ existing tools with new ones to meet the goals stated above.
 
 ## Design
 
-Here's some diagrams of how the components are expected to work together. The
-key explains the notation and details about each component can be found in the
-components section below.
-
-Key:
-
-```
-[]       - A component
-[[],...] - A pool of components
-()       - A label
-->       - Data (often labeled for clarity. For Exampple: [x]-(events)->[y])
-```
+Here's some diagrams of how the components are expected to work together.
+Details about each component can be found in the components section below.
 
 ### PwnedAlert
 
