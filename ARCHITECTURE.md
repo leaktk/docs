@@ -9,7 +9,7 @@ addressing:
 * [Mitigation](GLOSSARY.md#mitigation)
 * [Prevention](GLOSSARY.md#prevention)
 
-In a way that meants these project goals:
+In a way that meets these project goals:
 
 * Open & Free
 * Self-Hostable & Customizable
@@ -40,29 +40,11 @@ Key:
 
 ### PwnedAlert
 
-PwnedAlert is a collection of monitors, a central daemon, a scanner pool,
-filters/enrichers, and forwarders.
+PwnedAlert is a collection of Source Monitors, Scanners, Analyzers and
+Forwarders that communicate through a central daemon.
 
-```
-[[Monitor](GitHub), [Monitor](GitLab), [Monitor](Jira), ...]
-                      |
-                (Source Event)                   [Pattern Server]
-                      |                              ^     |
-  *-(Scan Results)-*  |   *-(Scan Request)-*         | (Patterns)
-  |                |  |   |                |     (Request) |
-  V                |  v   |                V         |     v
-[Filters]    [PwnedAlert Daemon] [[Scanner], [Scanner], ...]
-  |                ^  |   |                |
-  v                |  |   |                |
-[Enrichers]        |  |   *-(Scan Results)-*
-  |                |  |
-  *(Enriched Leaks)*  |
-                      |
-               (Enriched Leaks)
-                      |
-                      V
-[[Forwarder](Splunk), [Forwarder](Email), [Forwarder](Webhook), ...]
-```
+![](assets/PwnedAlert.drawio.png)
+([Source](assets/PwnedAlert.drawio))
 
 ### Pre-Commit Hook
 
@@ -84,29 +66,27 @@ The idea is to make these components composable. For example if scan requests
 needed to be sent over HTTP, a server component could be spun up that wraps a
 scanner pool to handle requests and responses.
 
-### Enrichers & Filters
+### Analyzers
 
-Enrichers take scan results and add extra information, such as tags, to indicate
-that the leak has been verified or they can add new fields for additional context.
-An enricher MAY add fields or modify them but SHOULD NOT remove fields.
+Analyzers take scan results, analyze them, and generate alerts. They may verify
+leaks, filter existing items out, add/remove tags from the alerts, etc.
 
-Filters are mainly for deduping scan results over time, but any kind of filter
-that takes a scan result and optionally returns a scan result can be added.
-Filters may also remove items from lists, for example they may remove alert
-tags if additional analysis indicates the result is a false positive.
+An alert SHOULD have all of the same fields as a scan result, but an analyzer
+MAY alter the information in a field. It MAY also add additional fields.
 
-These two are grouped together because a the same bit of code could act as both
-a filter and as an enricher.
+An analyzer MAY not generate an alert for a result, or it MAY generate multiple
+alerts per a result. Each alert should be its own message.
 
 ### Forwarders
 
-Forwarders take the final enriched message, formats it and sends it to an
-external source like a SIEM, sends an email, etc. These aren't expected to
-have any stdout.
+Forwarders take the alerts, formats them, optionally groups them, and sends
+them to an external source like a SIEM, sends an email, etc. These aren't
+expected to have any stdout.
 
-### Monitors
+### Source Monitors
 
-Monitors watch sources for changes. When a change happens, it emits a source event.
+Source Monitors watch sources for changes. When a change happens, it emits a
+source event.
 
 A few examples of monitors:
 
@@ -135,13 +115,13 @@ pattern filtering options.
 This starts up all of the other process and acts as a message broker. It routes
 traffic handles the logs and keeps everything going.
 
-### Scanner
+### Scanner Pool
 
-It's meant to handle multiple source types and integrates with the pattern
-server to keep a fresh set of scanning patterns. This is meant to provide a
-stable, consistent interface to other existing scanners (e.g. gitleaks, maybe
-yara, etc).
+The Scanner Pool is a collection of LeakTK Scanners meant to handle multiple
+source types and integrates with the pattern server to keep a fresh set of leak
+patterns. This is meant to provide a stable, consistent interface to other
+existing scanners (e.g. gitleaks, maybe yara, etc).
 
-The scanner will also make "smart" decisions about it's requests to increase
+The scanner will also make "smart" decisions about its requests to increase
 performance. In some cases it may increase the scan scope to avoid errors.
 For example switching to no single branch if the provided branch doesn't exist.
