@@ -60,7 +60,7 @@ scanner pool to handle requests and responses.
 ### Analyzers
 
 Analyzers take scan results, analyze them, and generate alerts. They may verify
-leaks, filter existing items out, add/remove tags from the alerts, etc.
+creds, filter existing items out, add/remove tags from the alerts, etc.
 
 An alert SHOULD have all of the same fields as a scan result, but an analyzer
 MAY alter the information in a field. It MAY also add additional fields.
