@@ -109,9 +109,9 @@ broker, and handles logging.
 ### Scanner Pool
 
 The Scanner Pool is a collection of LeakTK Scanners meant to handle multiple
-source types and integrates with the pattern server to keep a fresh set of leak
-patterns. This is meant to provide a stable, consistent interface to other
-existing scanners (e.g. gitleaks, maybe yara, etc).
+source event types and integrates with the pattern server to keep a fresh set
+of leak patterns. This is meant to provide a stable, consistent interface to
+other existing scanners (e.g. gitleaks, maybe yara, etc).
 
 The scanner will also make "smart" decisions about its requests to increase
 performance. In some cases it may increase the scan scope to avoid errors.  For
