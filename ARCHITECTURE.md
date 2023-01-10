@@ -113,8 +113,8 @@ pattern filtering options.
 
 ### PwnedAlert Daemon
 
-This starts up all of the other process and acts as a message broker. It routes
-traffic handles the logs and keeps everything going.
+The PwnedAlert Daemon manages all of the other process and acts as a message
+broker. It routes traffic handles the logs and keeps everything going.
 
 ### Scanner Pool
 
@@ -124,5 +124,5 @@ patterns. This is meant to provide a stable, consistent interface to other
 existing scanners (e.g. gitleaks, maybe yara, etc).
 
 The scanner will also make "smart" decisions about its requests to increase
-performance. In some cases it may increase the scan scope to avoid errors.
-For example switching to no single branch if the provided branch doesn't exist.
+performance. In some cases it may increase the scan scope to avoid errors.  For
+example switching to no single branch if the provided branch doesn't exist.
