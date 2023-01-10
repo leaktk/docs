@@ -60,7 +60,7 @@ TODO: Diagram - takes a scan result and preforms actions directly on it.
 Unless otherwise noted, assume each component takes its input via stdin and
 returns output to stdout and logs to stderr. In most (if not all) cases the
 message output will be in [jsonl format](https://jsonlines.org/). If there is a
-desire to network components an additional component should be introduced to
+desire to network components, an additional component should be introduced to
 handle that.
 
 The idea is to make these components composable. For example if scan requests
