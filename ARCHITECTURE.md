@@ -70,7 +70,7 @@ alerts per a result. Each alert should be its own message.
 
 ### Forwarders
 
-Forwarders take the alerts, formats them, optionally groups them, and sends
+Forwarders take the alerts, formats them, optionally group them, and sends
 them to an external source like a SIEM, sends an email, etc. These aren't
 expected to have any stdout.
 
