@@ -103,8 +103,8 @@ pattern filtering options.
 
 ### PwnedAlert Daemon
 
-The PwnedAlert Daemon manages all of the other process and acts as a message
-broker. It routes traffic handles the logs and keeps everything going.
+The PwnedAlert Daemon manages all of the other process, acts as a message
+broker, and handles logging.
 
 ### Scanner Pool
 
