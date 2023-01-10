@@ -65,13 +65,13 @@ creds, filter existing items out, add/remove tags from the alerts, etc.
 An alert SHOULD have all of the same fields as a scan result, but an analyzer
 MAY alter the information in a field. It MAY also add additional fields.
 
-An analyzer MAY not generate an alert for a result, or it MAY generate multiple
-alerts per a result. Each alert should be its own message.
+An analyzer MAY generate 0 or more alerts per result. Each alert will be sent
+as its own message.
 
 ### Forwarders
 
-Forwarders take the alerts, formats them, optionally group them, and sends
-them to an external source like a SIEM, sends an email, etc. These aren't
+Forwarders take the alerts, format them, optionally group them, and send
+them to an external source like a SIEM, send an email, etc. Forwarders aren't
 expected to have any stdout.
 
 ### Source Monitors
@@ -97,9 +97,9 @@ used. This allows fresh patterns to be distributed to the scanner without
 having to redeploy it. It also provides a way to return filtered views of
 patterns to the scanner if supported.
 
-At a minimum any HTTP server can be a pattern server, but there will be a
-pattern server component to this project that provides role based access and
-pattern filtering options.
+At a minimum any HTTP server can be a pattern server, but there is a pattern
+server component to this project that provides role based access and pattern
+filtering options.
 
 ### PwnedAlert Daemon
 
