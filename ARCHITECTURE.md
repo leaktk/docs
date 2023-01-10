@@ -44,7 +44,8 @@ PwnedAlert is a collection of Source Monitors, Scanners, Analyzers and
 Forwarders that communicate through a central daemon.
 
 ![](assets/PwnedAlert.drawio.png)
-([Source](assets/PwnedAlert.drawio))
+
+([Diagram Source](assets/PwnedAlert.drawio))
 
 ### Pre-Commit Hook
 
