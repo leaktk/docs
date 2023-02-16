@@ -43,7 +43,7 @@ TODO: Diagram - leverages the scanner directly within a repo
 
 ### Repo Cleaners
 
-TODO: Diagram - takes a scan result and preforms actions directly on it.
+TODO: Diagram - takes a scan response and preforms actions directly on it.
 
 ## Components
 
@@ -59,14 +59,14 @@ scanner pool to handle requests and responses.
 
 ### Analyzers
 
-Analyzers take scan results, analyze them, and generate alerts. They may verify
+Analyzers take scan response, analyze them, and generate alerts. They may verify
 creds, filter existing items out, add/remove tags from the alerts, etc.
 
 An alert SHOULD have all of the same fields as a scan result, but an analyzer
 MAY alter the information in a field. It MAY also add additional fields.
 
 An analyzer MAY generate 0 or more alerts per result. Each alert will be sent
-as its own message.
+as its own message to the forwarders.
 
 ### Forwarders
 
@@ -77,7 +77,7 @@ expected to have any stdout.
 ### Source Monitors
 
 Source Monitors watch sources for changes. When a change happens, it emits a
-source event.
+scan request.
 
 A few examples of monitors:
 
@@ -109,9 +109,12 @@ broker, and handles logging.
 ### Scanner Pool
 
 The Scanner Pool is a collection of LeakTK Scanners meant to handle multiple
-source event types and integrates with the pattern server to keep a fresh set
+scan request types and integrates with the pattern server to keep a fresh set
 of leak patterns. This is meant to provide a stable, consistent interface to
 other existing scanners (e.g. gitleaks, maybe yara, etc).
 
 The scanner will also make "smart" decisions about its requests to increase
 performance. In some cases it may increase the scan scope to avoid errors.
+
+It generates scan responses which contain the results of the scan and other
+metadata.
