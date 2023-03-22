@@ -13,3 +13,7 @@ A tool to verify that credentials are still active.
 ## Needs Discovery
 
 * The legal implications of using creds found on the internet (see req #1)
+
+## Resources
+
+* [trufflehog](https://github.com/trufflesecurity/trufflehog) might be a good source of examples for verifying creds.
