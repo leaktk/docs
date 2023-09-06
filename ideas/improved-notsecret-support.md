@@ -15,3 +15,13 @@ Maybe even support `notsecret-n` as well for places where it'd need to cover
 the reverse. and notsecret+EOF for the whole file.
 
 Anywho, just a placeholder for the idea and more discovery is needed.
+
+Or another option would be to do something like:
+
+```
+# notsecret:begin
+secret stuff secret stuff
+# notsecret:end
+```
+And implement it as a regex rule. This would have to be done in a version > 7.6.1
+since it only appears to do single line matches.
