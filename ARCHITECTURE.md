@@ -75,7 +75,8 @@ the LeakTK-PatternServer.
 
 ### LeakTK-PatternServer
 
-**STATUS**: Internal implementation being open sourced
+**STATUS**: Internal implementation being open sourced, but the patterns repo 
+can act as a patterns server and is the default one in the scanner.
 
 **Purpose:** LeakTK-PatternServer provides filtered views of detection patterns
 based on use case and user permissions.
