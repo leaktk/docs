@@ -110,19 +110,19 @@ other systems or users.
 *Relationship to other components:* LeakTK-Forwarder receives requests from
 LeakTK-Analyst.
 
-### LeakTK-GitHooks
+### LeakTK-Hooks
 
 **STATUS**: Internal implementation being open sourced
 
-**Purpose:** LeakTK-GitHooks is a set of Git hooks for preventing leaks and
+**Purpose:** LeakTK-Hooks is a set of hooks for git (and other sources WIP) for preventing leaks and
 providing teams with management and auditing tools.
 
 Hooks:
 
-* pre-commit - Scan for secrets and block commits if detected.
-* commit-msg - Attest pre-commit usage for auditability.
+* git.pre-commit - Scan for secrets and block commits if detected.
+* git.commit-msg - Attest pre-commit usage for auditability.
 
-*Relationship to other components:* LeakTK-GitHooks interacts with the Git
+*Relationship to other components:* LeakTK-Hooks interacts with the Git
 workflow.
 
 ### LeakTK-Mitigator
